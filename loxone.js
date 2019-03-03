@@ -995,7 +995,7 @@ function loadInfoOnlyAnalogControl(type, uuid, control) {
     }
 }
 
-function loadTextStateControl(type, uuid, control) {
+function loadInfoOnlyControl(type, uuid, control) {
     updateObject(uuid, {
         type: type,
         common: {
