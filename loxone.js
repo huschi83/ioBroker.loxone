@@ -1005,6 +1005,8 @@ function loadInfoOnlyTextControl(type, uuid, control) {
         native: control
     });
 
+    loadOtherControlStates(control.name, uuid, control.states, ['textAndIcon']);
+
     createSimpleControlStateObject(control.name, uuid, control.states, 'textAndIcon', 'string', 'text');
     
     if (!control.hasOwnProperty('states') || !control.states.hasOwnProperty('active')) {
