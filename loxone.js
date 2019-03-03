@@ -995,6 +995,27 @@ function loadInfoOnlyAnalogControl(type, uuid, control) {
     }
 }
 
+function loadTextStateControl(type, uuid, control) {
+    updateObject(uuid, {
+        type: type,
+        common: {
+            name: control.name,
+            role: 'text'
+        },
+        native: control
+    });
+
+    createSimpleControlStateObject(control.name, uuid, control.states, 'text', 'string', 'text');
+    
+    if (!control.hasOwnProperty('states') || !control.states.hasOwnProperty('active')) {
+        return;
+    }
+    
+    if (!control.hasOwnProperty('details')) {
+        return;
+    }
+}
+
 function loadIntercomControl(type, uuid, control) {
     updateObject(uuid, {
         type: type,
