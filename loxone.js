@@ -1,4 +1,4 @@
-﻿/* jshint -W097 */ // no "use strict" warnings
+/* jshint -W097 */ // no "use strict" warnings
 /* jshint -W061 */ // no "eval" warnings
 /* jslint node: true */
 "use strict";
@@ -1000,7 +1000,7 @@ function loadInfoOnlyTextControl(type, uuid, control) {
         type: type,
         common: {
             name: control.name,
-            role: 'text'
+            role: 'text'                                                                                         // was ist die richtige Rolle??
         },
         native: control
     });
@@ -1008,7 +1008,7 @@ function loadInfoOnlyTextControl(type, uuid, control) {
     loadOtherControlStates(control.name, uuid, control.states, ['textAndIcon']);
 
     createSimpleControlStateObject(control.name, uuid, control.states, 'textAndIcon', 'string', 'text');
-    
+
     if (!control.hasOwnProperty('states') || !control.states.hasOwnProperty('active')) {
         return;
     }
@@ -1031,6 +1031,25 @@ function loadTextStateControl(type, uuid, control) {
     loadOtherControlStates(control.name, uuid, control.states, ['textAndIcon']);
 
     createSimpleControlStateObject(control.name, uuid, control.states, 'textAndIcon', 'string', 'text');
+    
+    if (!control.hasOwnProperty('states') || !control.states.hasOwnProperty('active')) {
+        return;
+    }
+    
+    if (!control.hasOwnProperty('details')) {
+        return;
+    }
+}
+
+function loadUpDownDigital(type, uuid, control) {
+    updateObject(uuid, {
+        type: type,
+        common: {
+            name: control.name,
+            role: 'text'
+        },
+        native: control
+    });
     
     if (!control.hasOwnProperty('states') || !control.states.hasOwnProperty('active')) {
         return;
