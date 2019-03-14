@@ -1041,7 +1041,7 @@ function loadTextStateControl(type, uuid, control) {
     }
 }
 
-function loadUpDownDigital(type, uuid, control) {
+function loadUpDownDigitalControl(type, uuid, control) {
     updateObject(uuid, {
         type: type,
         common: {
